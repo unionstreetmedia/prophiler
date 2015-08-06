@@ -61,12 +61,12 @@ class DispatcherPluginTest extends PhalconPluginTest
     {
         $benchmark = $this->getMock('\Fabfuel\Prophiler\Benchmark\BenchmarkInterface');
 
-        $metadata = [
+        $metadata = array(
             'executed' => 'stdClass::testAction',
             'controller' => 'foobar',
             'action' => 'test',
-            'params' => ['test-params' => 'foobar'],
-        ];
+            'params' => array('test-params' => 'foobar'),
+        );
 
         $dispatcher = $this->getMock('Phalcon\Mvc\Dispatcher');
 
@@ -80,7 +80,7 @@ class DispatcherPluginTest extends PhalconPluginTest
 
         $dispatcher->expects($this->once())
             ->method('getParams')
-            ->willReturn(['test-params' => 'foobar']);
+            ->willReturn(array('test-params' => 'foobar'));
 
         $dispatcher->expects($this->once())
             ->method('getActiveController')

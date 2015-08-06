@@ -25,13 +25,13 @@ class ViewPlugin extends PluginAbstract implements ViewPluginInterface
      * All render levels as descriptive strings
      * @var array
      */
-    private $renderLevels = [
+    private $renderLevels = array(
         View::LEVEL_ACTION_VIEW => 'action',
         View::LEVEL_AFTER_TEMPLATE => 'afterTemplate',
         View::LEVEL_BEFORE_TEMPLATE => 'beforeTemplate',
         View::LEVEL_LAYOUT => 'controller',
         View::LEVEL_MAIN_LAYOUT => 'main'
-    ];
+    );
 
     /**
      * Start view benchmark
@@ -42,10 +42,10 @@ class ViewPlugin extends PluginAbstract implements ViewPluginInterface
     public function beforeRenderView(Event $event, ViewInterface $view)
     {
         $name = get_class($event->getSource()) . '::render: ' . basename($view->getActiveRenderPath());
-        $metadata = [
+        $metadata = array(
             'view' => realpath($view->getActiveRenderPath()) ?: $view->getActiveRenderPath(),
             'level' => $this->getRenderLevel($view->getCurrentRenderLevel()),
-        ];
+        );
 
         $this->setBenchmark($view, $this->getProfiler()->start($name, $metadata, 'View'));
     }

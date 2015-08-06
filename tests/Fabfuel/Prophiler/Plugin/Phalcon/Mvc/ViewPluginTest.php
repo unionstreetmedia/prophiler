@@ -52,10 +52,10 @@ class ViewPluginTest extends PhalconPluginTest
             ->method('getActiveRenderPath')
             ->willReturn('main');
 
-        $metadata = [
+        $metadata = array(
             'view' => 'main',
             'level' => 'action',
-        ];
+        );
 
         $this->profiler->expects($this->once())
             ->method('start')
@@ -181,22 +181,22 @@ class ViewPluginTest extends PhalconPluginTest
     public function getRenderLevels()
     {
         if(!extension_loaded('phalcon')) {
-            return [
-                ['foobar', ''],
-                ['lorem', ''],
-                ['', ''],
-            ];
+            return array(
+                array('foobar', ''),
+                array('lorem', ''),
+                array('', ''),
+            );
         }
 
-        return [
-            [\Phalcon\Mvc\View::LEVEL_ACTION_VIEW, 'action'],
-            [\Phalcon\Mvc\View::LEVEL_AFTER_TEMPLATE, 'afterTemplate'],
-            [\Phalcon\Mvc\View::LEVEL_BEFORE_TEMPLATE, 'beforeTemplate'],
-            [\Phalcon\Mvc\View::LEVEL_LAYOUT, 'controller'],
-            [\Phalcon\Mvc\View::LEVEL_MAIN_LAYOUT, 'main'],
-            ['foobar', ''],
-            ['lorem', ''],
-            ['', ''],
-        ];
+        return array(
+            array(\Phalcon\Mvc\View::LEVEL_ACTION_VIEW, 'action'),
+            array(\Phalcon\Mvc\View::LEVEL_AFTER_TEMPLATE, 'afterTemplate'),
+            array(\Phalcon\Mvc\View::LEVEL_BEFORE_TEMPLATE, 'beforeTemplate'),
+            array(\Phalcon\Mvc\View::LEVEL_LAYOUT, 'controller'),
+            array(\Phalcon\Mvc\View::LEVEL_MAIN_LAYOUT, 'main'),
+            array('foobar', ''),
+            array('lorem', ''),
+            array('', ''),
+        );
     }
 }

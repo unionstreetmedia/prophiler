@@ -27,7 +27,7 @@ class PDOTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->profiler = $this->getMock('Fabfuel\Prophiler\ProfilerInterface');
-        $this->pdo = $this->getMock('Fabfuel\Prophiler\Mock\PDO', ['query', 'exec', 'prepare', 'foobar']);
+        $this->pdo = $this->getMock('Fabfuel\Prophiler\Mock\PDO', array('query', 'exec', 'prepare', 'foobar'));
         $this->decorator = new PDO($this->pdo, $this->profiler);
     }
 
@@ -84,7 +84,7 @@ class PDOTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->expects($this->once())
             ->method('stop')
-            ->with($benchmark, ['statement' => $query, 'rows' => $rowCount, 'columns' => $columnCount]);
+            ->with($benchmark, array('statement' => $query, 'rows' => $rowCount, 'columns' => $columnCount));
 
         $this->pdo->expects($this->once())
             ->method('query')
@@ -113,7 +113,7 @@ class PDOTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->expects($this->once())
             ->method('stop')
-            ->with($benchmark, ['statement' => $query, 'affected rows' => $rowCount]);
+            ->with($benchmark, array('statement' => $query, 'affected rows' => $rowCount));
 
         $this->pdo->expects($this->once())
             ->method('exec')
@@ -133,13 +133,13 @@ class PDOTest extends \PHPUnit_Framework_TestCase
     public function testPrepare()
     {
         $query = 'SELECT * FROM users;';
-        $options = ['foo' => 'bar'];
+        $options = array('foo' => 'bar');
         $pdoStatement = $this->getMock('\PDOStatement');
         $benchmark = $this->getMock('Fabfuel\Prophiler\Benchmark\BenchmarkInterface');
 
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('PDO::prepare', ['statement' => $query], 'Database')
+            ->with('PDO::prepare', array('statement' => $query), 'Database')
             ->willReturn($benchmark);
 
         $this->profiler->expects($this->once())
@@ -166,12 +166,12 @@ class PDOTest extends \PHPUnit_Framework_TestCase
     public function testPrepareInvalidStatement()
     {
         $query = 'SELECT * FROM users;';
-        $options = ['foo' => 'bar'];
+        $options = array('foo' => 'bar');
         $benchmark = $this->getMock('Fabfuel\Prophiler\Benchmark\BenchmarkInterface');
 
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('PDO::prepare', ['statement' => $query], 'Database')
+            ->with('PDO::prepare', array('statement' => $query), 'Database')
             ->willReturn($benchmark);
 
         $this->profiler->expects($this->once())

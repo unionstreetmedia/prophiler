@@ -111,7 +111,7 @@ class ProfilerTest extends \PHPUnit_Framework_TestCase
     public function testStart()
     {
         $name = 'foobar';
-        $metadata = ['lorem' => 'ipsum'];
+        $metadata = array('lorem' => 'ipsum');
 
         $benchmark = $this->profiler->start($name, $metadata);
 
@@ -132,8 +132,8 @@ class ProfilerTest extends \PHPUnit_Framework_TestCase
     public function testStop()
     {
         $name = 'foobar';
-        $metadataStart = ['lorem' => 'ipsum'];
-        $metadataStop = ['additional' => 'stop'];
+        $metadataStart = array('lorem' => 'ipsum');
+        $metadataStop = array('additional' => 'stop');
 
         $benchmark = $this->profiler->start($name, $metadataStart);
 
@@ -165,8 +165,8 @@ class ProfilerTest extends \PHPUnit_Framework_TestCase
     public function testStopLastBenchmark()
     {
         $name = 'foobar';
-        $metadataStart = ['lorem' => 'ipsum'];
-        $metadataStop = ['additional' => 'stop'];
+        $metadataStart = array('lorem' => 'ipsum');
+        $metadataStop = array('additional' => 'stop');
 
         $benchmark = $this->profiler->start($name, $metadataStart);
 

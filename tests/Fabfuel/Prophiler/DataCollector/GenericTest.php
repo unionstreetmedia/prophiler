@@ -54,12 +54,12 @@ class GenericTest extends \PHPUnit_Framework_TestCase
      */
     public function testData()
     {
-        $data = [
+        $data = array(
             'foo' => 1,
             'bar' => 'bar',
-            'yada' => [1,2,3],
+            'yada' => array(1,2,3),
             'pebble' => new \stdClass()
-        ];
+        );
         $this->generic->setData($data);
         $this->assertSame($data, $this->generic->getData());
     }

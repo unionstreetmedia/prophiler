@@ -31,7 +31,7 @@ class BackendDecoratorTest extends \PHPUnit_Framework_TestCase
         /**
          * Methods need to be specified manually, as this interface changed from Phalcon 1.3 to 2.0
          */
-        $this->backend = $this->getMock('\Phalcon\Cache\BackendInterface', [
+        $this->backend = $this->getMock('\Phalcon\Cache\BackendInterface', array(
             'start',
             'stop',
             'getFrontend',
@@ -46,7 +46,7 @@ class BackendDecoratorTest extends \PHPUnit_Framework_TestCase
             'queryKeys',
             'exists',
             'flush',
-        ], array(), 'CacheMock');
+        ), array(), 'CacheMock');
         $this->profiler = $this->getMock('Fabfuel\Prophiler\ProfilerInterface');
         $this->decorator = new BackendDecorator($this->backend, $this->profiler);
     }
@@ -101,7 +101,7 @@ class BackendDecoratorTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('CacheMock::get', [$key, $lifetime], 'Cache CacheMock')
+            ->with('CacheMock::get', array($key, $lifetime), 'Cache CacheMock')
             ->willReturn($benchmark);
 
         $this->profiler->expects($this->once())
@@ -125,7 +125,7 @@ class BackendDecoratorTest extends \PHPUnit_Framework_TestCase
             ->expects($this->once())
             ->method($method);
 
-        call_user_func_array([$methodMock, 'with'], $params);
+        call_user_func_array(array($methodMock, 'with'), $params);
 
         $this->profiler->expects($this->once())
             ->method('start')
@@ -136,7 +136,7 @@ class BackendDecoratorTest extends \PHPUnit_Framework_TestCase
             ->method('stop')
             ->with($benchmark);
 
-        call_user_func_array([$this->decorator, $method], $params);
+        call_user_func_array(array($this->decorator, $method), $params);
     }
 
     /**
@@ -148,21 +148,21 @@ class BackendDecoratorTest extends \PHPUnit_Framework_TestCase
      */
     public function gatewayMethods()
     {
-        return [
-            ['start', ['key', 123]],
-            ['stop', [true]],
-            ['getFrontend', array()],
-            ['getOptions', array()],
-            ['isFresh', array()],
-            ['isStarted', array()],
-            ['setLastKey', ['lastkey']],
-            ['getLastKey', array()],
-            ['get', ['key', 123]],
-            ['save', ['key', 'content', 123, true]],
-            ['delete', ['key']],
-            ['queryKeys', ['prefix']],
-            ['exists', ['key', 123]],
-            ['flush', array()],
-        ];
+        return array(
+            array('start', array('key', 123)),
+            array('stop', array(true)),
+            array('getFrontend', array()),
+            array('getOptions', array()),
+            array('isFresh', array()),
+            array('isStarted', array()),
+            array('setLastKey', array('lastkey')),
+            array('getLastKey', array()),
+            array('get', array('key', 123)),
+            array('save', array('key', 'content', 123, true)),
+            array('delete', array('key')),
+            array('queryKeys', array('prefix')),
+            array('exists', array('key', 123)),
+            array('flush', array()),
+        );
     }
 }

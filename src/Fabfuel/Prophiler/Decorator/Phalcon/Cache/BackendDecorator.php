@@ -45,7 +45,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function start($keyName, $lifetime = null)
     {
-        return $this->__call('start', [$keyName, $lifetime]);
+        return $this->__call('start', array($keyName, $lifetime));
     }
 
     /**
@@ -56,7 +56,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function stop($stopBuffer = null)
     {
-        return $this->__call('stop', [$stopBuffer]);
+        return $this->__call('stop', array($stopBuffer));
     }
 
     /**
@@ -107,7 +107,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function setLastKey($lastKey)
     {
-        return $this->__call('setLastKey', [$lastKey]);
+        return $this->__call('setLastKey', array($lastKey));
     }
 
     /**
@@ -129,7 +129,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function get($keyName, $lifetime = null)
     {
-        return $this->__call('get', [$keyName, $lifetime]);
+        return $this->__call('get', array($keyName, $lifetime));
     }
 
     /**
@@ -143,7 +143,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function save($keyName = null, $content = null, $lifetime = null, $stopBuffer = null)
     {
-        return $this->__call('save', [$keyName, $content, $lifetime, $stopBuffer]);
+        return $this->__call('save', array($keyName, $content, $lifetime, $stopBuffer));
     }
 
     /**
@@ -154,7 +154,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function delete($keyName)
     {
-        return $this->__call('delete', [$keyName]);
+        return $this->__call('delete', array($keyName));
     }
 
     /**
@@ -165,7 +165,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function queryKeys($prefix = null)
     {
-        return $this->__call('queryKeys', [$prefix]);
+        return $this->__call('queryKeys', array($prefix));
     }
 
     /**
@@ -177,7 +177,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function exists($keyName = null, $lifetime = null)
     {
-        return $this->__call('exists', [$keyName, $lifetime]);
+        return $this->__call('exists', array($keyName, $lifetime));
     }
 
     /**

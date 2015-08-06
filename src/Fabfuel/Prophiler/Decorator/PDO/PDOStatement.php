@@ -47,7 +47,7 @@ class PDOStatement
      */
     public function __call($name, array $arguments)
     {
-        return call_user_func_array([$this->getStatement(), $name], $arguments);
+        return call_user_func_array(array($this->getStatement(), $name), $arguments);
     }
 
     /**
@@ -56,11 +56,11 @@ class PDOStatement
      */
     public function execute(array $input_parameters = null)
     {
-        $metadata = [
+        $metadata = array(
             'input parameters' => $input_parameters,
             'bound parameters' => $this->parameters,
             'query' => $this->getStatement()->queryString
-        ];
+        );
         $benchmark = $this->getProfiler()->start('PDOStatement::execute', $metadata, 'Database');
         $result = $this->getStatement()->execute($input_parameters);
         $this->getProfiler()->stop($benchmark);

@@ -42,7 +42,7 @@ class PDO
      */
     public function __call($name, array $arguments)
     {
-        return call_user_func_array([$this->getPdo(), $name], $arguments);
+        return call_user_func_array(array($this->getPdo(), $name), $arguments);
     }
 
     /**
@@ -51,7 +51,7 @@ class PDO
      */
     public function query($statement)
     {
-        $metadata = ['statement' => $statement];
+        $metadata = array('statement' => $statement);
         $benchmark = $this->getProfiler()->start('PDO::query', array(), 'Database');
         $result = $this->getPdo()->query($statement);
         if ($result instanceof \PDOStatement) {
@@ -68,7 +68,7 @@ class PDO
      */
     public function exec($statement)
     {
-        $metadata = ['statement' => $statement];
+        $metadata = array('statement' => $statement);
         $benchmark = $this->getProfiler()->start('PDO::exec', array(), 'Database');
         $result = $this->getPdo()->exec($statement);
         if ($result !== false) {
@@ -85,7 +85,7 @@ class PDO
      */
     public function prepare($statement, $options = null)
     {
-        $benchmark = $this->getProfiler()->start('PDO::prepare', ['statement' => $statement], 'Database');
+        $benchmark = $this->getProfiler()->start('PDO::prepare', array('statement' => $statement), 'Database');
         $pdoStatement = $this->getPdo()->prepare($statement, $options ?: array());
         $this->getProfiler()->stop($benchmark);
         if (!$pdoStatement) {

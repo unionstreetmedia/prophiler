@@ -45,10 +45,10 @@ class BenchmarkFormatterTest extends \PHPUnit_Framework_TestCase
 
     public function formatterProvider()
     {
-        return [
-            [$this->getMock('Fabfuel\Prophiler\Benchmark\BenchmarkInterface')],
-            [$this->getMock('Fabfuel\Prophiler\Benchmark\BenchmarkInterface')]
-        ];
+        return array(
+            array($this->getMock('Fabfuel\Prophiler\Benchmark\BenchmarkInterface')),
+            array($this->getMock('Fabfuel\Prophiler\Benchmark\BenchmarkInterface'))
+        );
     }
 
     public function testGetName()
@@ -106,11 +106,11 @@ class BenchmarkFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function getIcons()
     {
-        return [
-            ['MongoDB', 'leaf'],
-            ['Foobar', 'cog'],
-            ['Lorem Ipsum', 'cog'],
-        ];
+        return array(
+            array('MongoDB', 'leaf'),
+            array('Foobar', 'cog'),
+            array('Lorem Ipsum', 'cog'),
+        );
     }
 
     /**
@@ -132,13 +132,13 @@ class BenchmarkFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function getColorClasses()
     {
-        return [
-            ['A', 'color-1'],
-            ['AB', 'color-2'],
-            ['ABC', 'color-3'],
-            ['ABCD', 'color-4'],
-            ['ABCDE', 'color-0'],
-        ];
+        return array(
+            array('A', 'color-1'),
+            array('AB', 'color-2'),
+            array('ABC', 'color-3'),
+            array('ABCD', 'color-4'),
+            array('ABCDE', 'color-0'),
+        );
     }
 
     public function testGetStartTime()
@@ -167,8 +167,8 @@ class BenchmarkFormatterTest extends \PHPUnit_Framework_TestCase
     {
         $this->benchmark->expects($this->any())
             ->method('getMetadata')
-            ->willReturn(['lorem' => 'ipsum']);
+            ->willReturn(array('lorem' => 'ipsum'));
 
-        $this->assertSame(['lorem' => 'ipsum'], $this->formatter->getMetadata());
+        $this->assertSame(array('lorem' => 'ipsum'), $this->formatter->getMetadata());
     }
 }

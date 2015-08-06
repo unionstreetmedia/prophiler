@@ -27,7 +27,7 @@ class PDOStatementTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->profiler = $this->getMock('Fabfuel\Prophiler\ProfilerInterface');
-        $this->pdoStatement = $this->getMock('\PDOStatement', ['execute', 'bindParam', 'bindColumn', 'foobar']);
+        $this->pdoStatement = $this->getMock('\PDOStatement', array('execute', 'bindParam', 'bindColumn', 'foobar'));
         $this->decorator = new PDOStatement($this->pdoStatement, $this->profiler);
     }
 
@@ -105,13 +105,13 @@ class PDOStatementTest extends \PHPUnit_Framework_TestCase
     public function testExecute()
     {
         $lorem = 'ipsum';
-        $inputParameters = ['foo' => 'bar'];
-        $boundParameters = ['lorem' => $lorem];
-        $metadata = [
+        $inputParameters = array('foo' => 'bar');
+        $boundParameters = array('lorem' => $lorem);
+        $metadata = array(
             'input parameters' => $inputParameters,
             'bound parameters' => $boundParameters,
             'query' => null
-        ];
+        );
 
         $benchmark = $this->getMock('Fabfuel\Prophiler\Benchmark\BenchmarkInterface');
 

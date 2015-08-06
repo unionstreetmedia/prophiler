@@ -55,7 +55,7 @@ class ToolbarTest extends \PHPUnit_Framework_TestCase
         $toolbar = new Toolbar($profiler);
 
         ob_start();
-        $toolbar->partial('../../../../tests/Fabfuel/Prophiler/View/test', ['foobar' => 'ipsum']);
+        $toolbar->partial('../../../../tests/Fabfuel/Prophiler/View/test', array('foobar' => 'ipsum'));
         $output = ob_get_clean();
 
         $this->assertSame("<lorem>ipsum</lorem>\n", $output);
@@ -71,7 +71,7 @@ class ToolbarTest extends \PHPUnit_Framework_TestCase
         $profiler = $this->getMock('Fabfuel\Prophiler\ProfilerInterface');
 
         $toolbar = new Toolbar($profiler);
-        $toolbar->partial('test-ipsum', ['foobar' => 'ipsum']);
+        $toolbar->partial('test-ipsum', array('foobar' => 'ipsum'));
     }
 
     /**
@@ -91,8 +91,9 @@ class ToolbarTest extends \PHPUnit_Framework_TestCase
 
         $dataCollector = $this->getMock('Fabfuel\Prophiler\DataCollector\Request');
         $toolbar->addDataCollector($dataCollector);
-
+        
+        $datacollectors = $toolbar->getDataCollectors();
         $this->assertCount(1, $toolbar->getDataCollectors());
-        $this->assertSame($dataCollector, $toolbar->getDataCollectors()[0]);
+        $this->assertSame($dataCollector, $datacollectors[0]);
     }
 }

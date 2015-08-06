@@ -53,12 +53,12 @@ class DispatcherPlugin extends PluginAbstract
     public function beforeExecuteRoute(Event $event, DispatcherInterface $dispatcher)
     {
         $name = get_class($event->getSource()) . '::executeRoute';
-        $metadata = [
+        $metadata = array(
             'executed' => sprintf('%s::%sAction', get_class($dispatcher->getActiveController()), $dispatcher->getActionName()),
             'controller' => $dispatcher->getControllerName(),
             'action' => $dispatcher->getActionName(),
             'params' => $dispatcher->getParams(),
-        ];
+        );
 
         $this->benchmarkRoute = $this->getProfiler()->start($name, $metadata, 'Dispatcher');
     }

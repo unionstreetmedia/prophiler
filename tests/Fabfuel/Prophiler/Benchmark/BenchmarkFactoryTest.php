@@ -15,7 +15,7 @@ class BenchmarkFactoryTest extends \PHPUnit_Framework_TestCase
     {
         $name = 'Foobar';
         $component = 'Lorem Ipsum';
-        $metadata = ['lorem' => 'ipsum'];
+        $metadata = array('lorem' => 'ipsum');
 
         $benchmark = BenchmarkFactory::getBenchmark($name, $metadata, $component);
 

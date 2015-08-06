@@ -18,13 +18,13 @@ class SQLLoggerTest extends \PHPUnit_Framework_TestCase
     {
         $name = 'Doctrine::query';
         $sql = 'SELECT * FROM foobar;';
-        $params = ['lorem' => 'ipsum'];
-        $types = ['foo' => 'bar'];
-        $metadata = [
+        $params = array('lorem' => 'ipsum');
+        $types = array('foo' => 'bar');
+        $metadata = array(
             'query' => $sql,
             'params' => $params,
             'types' => $types,
-        ];
+        );
 
         $benchmark = $this->getMock('\Fabfuel\Prophiler\Benchmark\BenchmarkInterface');
         $profiler = $this->getMock('Fabfuel\Prophiler\ProfilerInterface');

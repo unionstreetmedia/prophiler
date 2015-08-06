@@ -33,25 +33,25 @@ class Toolbar
      */
     public function render()
     {
-        $alertsSeverities = [
+        $alertsSeverities = array(
             Logger::SEVERITY_ALERT,
             Logger::SEVERITY_ERROR,
             Logger::SEVERITY_EMERGENCY,
             Logger::SEVERITY_CRITICAL
-        ];
+        );
 
         $alertCount = count(new ComponentFilteredIterator(
             $this->profiler,
             'Logger',
-            ['severity' => $alertsSeverities]
+            array('severity' => $alertsSeverities)
         ));
 
         ob_start();
-        $this->partial('toolbar', [
+        $this->partial('toolbar', array(
             'profiler' => $this->getProfiler(),
             'dataCollectors' => $this->getDataCollectors(),
             'alertCount' => $alertCount
-        ]);
+        ));
         return ob_get_clean();
     }
 

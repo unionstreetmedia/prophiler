@@ -39,13 +39,13 @@ class Request implements DataCollectorInterface
      */
     public function getData()
     {
-        $data = [
+        $data = array(
             'SERVER' => $_SERVER,
             'GET' => $_GET,
             'POST' => $_POST,
             'COOKIE' => $_COOKIE,
             'FILES' => $_FILES,
-        ];
+        );
 
         if (isset($_SESSION)) {
             $data['SESSION'] = $_SESSION;

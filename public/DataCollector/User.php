@@ -34,19 +34,20 @@ class User implements \Fabfuel\Prophiler\DataCollectorInterface
      */
     public function getData()
     {
-        $_SESSION = [
+        $_SESSION = array(
             'test1' => 'AB',
             'test2' => 55,
             'test3' => 12.4,
             'test4' => true,
-        ];
-
-        return [
+        );
+        
+        $datetime = new \DateTime();
+        return array(
             'email' => 'john@doe.com',
             'name' => 'John Doe',
             'role' => 'Admin',
-            'logged in' => (new \DateTime())->format('c'),
+            'logged in' => $datetime->format('c'),
             'session' => $_SESSION,
-        ];
+        );
     }
 }

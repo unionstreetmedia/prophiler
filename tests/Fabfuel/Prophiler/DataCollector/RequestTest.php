@@ -39,16 +39,16 @@ class RequestTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetData()
     {
-        $_SESSION = ['lorem' => 'ipsum'];
+        $_SESSION = array('lorem' => 'ipsum');
 
-        $data = [
+        $data = array(
             'SERVER' => $_SERVER,
             'GET' => $_GET,
             'POST' => $_POST,
             'COOKIE' => $_COOKIE,
             'FILES' => $_FILES,
             'SESSION' => $_SESSION,
-        ];
+        );
         $this->assertSame($data, $this->request->getData());
     }
 }

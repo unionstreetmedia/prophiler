@@ -22,7 +22,7 @@ class BenchmarkTest extends \PHPUnit_Framework_TestCase
     /**
      * @var array $metadata
      */
-    protected $metadata = ['lorem' => 'ipsum'];
+    protected $metadata = array('lorem' => 'ipsum');
 
     /**
      * @var string $component

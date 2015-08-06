@@ -28,9 +28,9 @@ class AdapterPlugin extends PluginAbstract
      */
     public function beforeQuery(Event $event, Adapter $database)
     {
-        $metadata = [
+        $metadata = array(
             'query' => $database->getSQLStatement()
-        ];
+        );
         $params = $database->getSQLVariables();
         if (isset($params)) {
             $metadata['params'] = $params;

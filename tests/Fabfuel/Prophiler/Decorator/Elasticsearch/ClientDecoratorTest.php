@@ -29,7 +29,7 @@ class ClientDecoratorTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->profiler = $this->getMock('Fabfuel\Prophiler\ProfilerInterface');
-        $this->client = $this->getMock('\Elasticsearch\Client', ['get', 'search'], array(), 'ElasticMock');
+        $this->client = $this->getMock('\Elasticsearch\Client', array('get', 'search'), array(), 'ElasticMock');
         $this->decorator = new ClientDecorator($this->client, $this->profiler);
     }
 
@@ -72,7 +72,7 @@ class ClientDecoratorTest extends \PHPUnit_Framework_TestCase
      */
     public function testCall()
     {
-        $payload = ['lorem' => 'ipsum'];
+        $payload = array('lorem' => 'ipsum');
         $benchmark = $this->getMock('Fabfuel\Prophiler\Benchmark\BenchmarkInterface');
 
         $this->client->expects($this->once())
@@ -81,7 +81,7 @@ class ClientDecoratorTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('ElasticMock::get', [$payload], 'Elasticsearch')
+            ->with('ElasticMock::get', array($payload), 'Elasticsearch')
             ->willReturn($benchmark);
 
         $this->profiler->expects($this->once())

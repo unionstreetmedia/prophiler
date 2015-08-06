@@ -12,7 +12,8 @@ class LogFormatter extends BenchmarkFormatter
      */
     public function getLabel()
     {
-        $severity = $this->getMetadata()['severity'];
+        $metadata = $this->getMetadata();
+        $severity = $metadata['severity'];
         return sprintf(
             '<span class="label %s">%s</span>',
             $this->getColorClass(),
@@ -25,7 +26,8 @@ class LogFormatter extends BenchmarkFormatter
      */
     public function getColorClass()
     {
-        $severity = $this->getMetadata()['severity'];
+        $metadata = $this->getMetadata();
+        $severity = $metadata['severity'];
         return sprintf(
             'severity-%s',
             $severity

@@ -32,7 +32,7 @@ abstract class AbstractDecorator
     public function __call($name, array $arguments)
     {
         $benchmark = $this->getProfiler()->start($this->getBenchmarkName($name), $arguments, $this->getComponentName());
-        $result = call_user_func_array([$this->getDecorated(), $name], $arguments);
+        $result = call_user_func_array(array($this->getDecorated(), $name), $arguments);
         $this->getProfiler()->stop($benchmark);
         return $result;
     }

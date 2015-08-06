@@ -20,7 +20,7 @@ class AdapterAbstractTest extends \PHPUnit_Framework_TestCase
             ->getMock();
 
         $adapter = $this->getMockBuilder('Fabfuel\Prophiler\Adapter\AdapterAbstract')
-            ->setConstructorArgs([$profiler])
+            ->setConstructorArgs(array($profiler))
             ->getMockForAbstractClass();
 
         $this->assertSame($profiler, $adapter->getProfiler());

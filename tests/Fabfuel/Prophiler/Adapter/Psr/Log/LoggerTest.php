@@ -41,9 +41,9 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     {
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Lorem Ipsum', ['foo' => 'bar', 'severity' => 'emergency'], 'Logger');
+            ->with('Lorem Ipsum', array('foo' => 'bar', 'severity' => 'emergency'), 'Logger');
 
-        $this->logger->emergency('Lorem Ipsum', ['foo' => 'bar']);
+        $this->logger->emergency('Lorem Ipsum', array('foo' => 'bar'));
     }
 
     /**
@@ -55,9 +55,9 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     {
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Lorem Ipsum', ['foo' => 'bar', 'severity' => 'alert'], 'Logger');
+            ->with('Lorem Ipsum', array('foo' => 'bar', 'severity' => 'alert'), 'Logger');
 
-        $this->logger->alert('Lorem Ipsum', ['foo' => 'bar']);
+        $this->logger->alert('Lorem Ipsum', array('foo' => 'bar'));
     }
 
     /**
@@ -69,9 +69,9 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     {
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Lorem Ipsum', ['foo' => 'bar', 'severity' => 'critical'], 'Logger');
+            ->with('Lorem Ipsum', array('foo' => 'bar', 'severity' => 'critical'), 'Logger');
 
-        $this->logger->critical('Lorem Ipsum', ['foo' => 'bar']);
+        $this->logger->critical('Lorem Ipsum', array('foo' => 'bar'));
     }
 
     /**
@@ -83,9 +83,9 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     {
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Lorem Ipsum', ['foo' => 'bar', 'severity' => 'error'], 'Logger');
+            ->with('Lorem Ipsum', array('foo' => 'bar', 'severity' => 'error'), 'Logger');
 
-        $this->logger->error('Lorem Ipsum', ['foo' => 'bar']);
+        $this->logger->error('Lorem Ipsum', array('foo' => 'bar'));
     }
 
     /**
@@ -97,9 +97,9 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     {
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Lorem Ipsum', ['foo' => 'bar', 'severity' => 'warning'], 'Logger');
+            ->with('Lorem Ipsum', array('foo' => 'bar', 'severity' => 'warning'), 'Logger');
 
-        $this->logger->warning('Lorem Ipsum', ['foo' => 'bar']);
+        $this->logger->warning('Lorem Ipsum', array('foo' => 'bar'));
     }
 
     /**
@@ -111,9 +111,9 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     {
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Lorem Ipsum', ['foo' => 'bar', 'severity' => 'notice'], 'Logger');
+            ->with('Lorem Ipsum', array('foo' => 'bar', 'severity' => 'notice'), 'Logger');
 
-        $this->logger->notice('Lorem Ipsum', ['foo' => 'bar']);
+        $this->logger->notice('Lorem Ipsum', array('foo' => 'bar'));
     }
 
     /**
@@ -125,9 +125,9 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     {
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Lorem Ipsum', ['foo' => 'bar', 'severity' => 'info'], 'Logger');
+            ->with('Lorem Ipsum', array('foo' => 'bar', 'severity' => 'info'), 'Logger');
 
-        $this->logger->info('Lorem Ipsum', ['foo' => 'bar']);
+        $this->logger->info('Lorem Ipsum', array('foo' => 'bar'));
     }
 
     /**
@@ -139,8 +139,8 @@ class LoggerTest extends \PHPUnit_Framework_TestCase
     {
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Lorem Ipsum', ['foo' => 'bar', 'severity' => 'debug'], 'Logger');
+            ->with('Lorem Ipsum', array('foo' => 'bar', 'severity' => 'debug'), 'Logger');
 
-        $this->logger->debug('Lorem Ipsum', ['foo' => 'bar']);
+        $this->logger->debug('Lorem Ipsum', array('foo' => 'bar'));
     }
 }

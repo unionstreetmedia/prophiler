@@ -27,7 +27,7 @@ class MongoTest extends \PHPUnit_Framework_TestCase
     public function testConstruct()
     {
         $name = 'foobar';
-        $metadata = ['lorem' => 'ipsum'];
+        $metadata = array('lorem' => 'ipsum');
         $benchmark = $this->getMock('\Fabfuel\Prophiler\Benchmark\BenchmarkInterface');
         $identifier = spl_object_hash($benchmark);
 

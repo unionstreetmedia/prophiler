@@ -21,7 +21,7 @@ class ComponentFilteredIteratorTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->profiler = $this->getMock('Fabfuel\Prophiler\Profiler', ['addBechmark']);
+        $this->profiler = $this->getMock('Fabfuel\Prophiler\Profiler', array('addBechmark'));
     }
 
     /**
@@ -87,7 +87,7 @@ class ComponentFilteredIteratorTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->addBenchmark($benchmark);
 
-        $filters = ['lorem' => 'ipsum'];
+        $filters = array('lorem' => 'ipsum');
         $iterator = new ComponentFilteredIterator($this->profiler, 'Foobar', $filters);
 
         $this->assertSame(1, $iterator->count());
@@ -116,12 +116,12 @@ class ComponentFilteredIteratorTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->addBenchmark($benchmark);
 
-        $filters = [
-            'foobars' => [
+        $filters = array(
+            'foobars' => array(
                 'foobar1',
                 'foobar2'
-            ]
-        ];
+            )
+        );
         $iterator = new ComponentFilteredIterator($this->profiler, 'Foobar', $filters);
 
         $this->assertSame(1, $iterator->count());
@@ -145,7 +145,7 @@ class ComponentFilteredIteratorTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->addBenchmark($benchmark);
 
-        $filters = ['lorem' => 'ipsum'];
+        $filters = array('lorem' => 'ipsum');
         $iterator = new ComponentFilteredIterator($this->profiler, 'Foobar', $filters);
 
         $this->assertSame(0, $iterator->count());
@@ -169,12 +169,12 @@ class ComponentFilteredIteratorTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->addBenchmark($benchmark);
 
-        $filters = [
-            'foobars' => [
+        $filters = array(
+            'foobars' => array(
                 'foobar1',
                 'foobar2'
-            ]
-        ];
+            )
+        );
         $iterator = new ComponentFilteredIterator($this->profiler, 'Foobar', $filters);
 
         $this->assertSame(0, $iterator->count());

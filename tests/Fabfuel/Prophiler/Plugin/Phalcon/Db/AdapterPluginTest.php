@@ -41,15 +41,15 @@ class AdapterPluginTest extends PhalconPluginTest
 
         $adapter->expects($this->once())
             ->method('getSQLVariables')
-            ->willReturn(['foo' => 'bar']);
+            ->willReturn(array('foo' => 'bar'));
 
         $adapter->expects($this->once())
             ->method('getSQLBindTypes')
-            ->willReturn(['lorem' => 'ipsum']);
+            ->willReturn(array('lorem' => 'ipsum'));
 
         $adapter->expects($this->once())
             ->method('getDescriptor')
-            ->willReturn(['dbname' => 'foobar']);
+            ->willReturn(array('dbname' => 'foobar'));
 
         $event = $this->getMockBuilder('Phalcon\Events\Event')
             ->disableOriginalConstructor()
@@ -59,12 +59,12 @@ class AdapterPluginTest extends PhalconPluginTest
             ->method('getSource')
             ->willReturn($adapter);
 
-        $metadata = [
+        $metadata = array(
             'query' => 'SELECT * FROM foobar;',
-            'params' => ['foo' => 'bar'],
-            'bindTypes' => ['lorem' => 'ipsum'],
+            'params' => array('foo' => 'bar'),
+            'bindTypes' => array('lorem' => 'ipsum'),
             'database' => 'foobar',
-        ];
+        );
 
         $this->profiler->expects($this->once())
             ->method('start')

@@ -36,7 +36,7 @@ class LogFormatterTest extends \PHPUnit_Framework_TestCase
     {
         $this->benchmark->expects($this->any())
             ->method('getMetadata')
-            ->willReturn(['severity' => $severity]);
+            ->willReturn(array('severity' => $severity));
 
         $this->assertSame($colorClass, $this->formatter->getColorClass());
     }
@@ -46,11 +46,11 @@ class LogFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function getColorClasses()
     {
-        return [
-            ['A', 'severity-A'],
-            ['AB', 'severity-AB'],
-            ['ABC', 'severity-ABC'],
-        ];
+        return array(
+            array('A', 'severity-A'),
+            array('AB', 'severity-AB'),
+            array('ABC', 'severity-ABC'),
+        );
     }
 
     /**
@@ -62,7 +62,7 @@ class LogFormatterTest extends \PHPUnit_Framework_TestCase
     {
         $this->benchmark->expects($this->any())
             ->method('getMetadata')
-            ->willReturn(['severity' => $severity]);
+            ->willReturn(array('severity' => $severity));
 
         $this->assertSame($colorClass, $this->formatter->getLabel());
     }
@@ -72,10 +72,10 @@ class LogFormatterTest extends \PHPUnit_Framework_TestCase
      */
     public function getLabels()
     {
-        return [
-            ['A', '<span class="label severity-A">A</span>'],
-            ['AB', '<span class="label severity-AB">AB</span>'],
-            ['ABC', '<span class="label severity-ABC">ABC</span>'],
-        ];
+        return array(
+            array('A', '<span class="label severity-A">A</span>'),
+            array('AB', '<span class="label severity-AB">AB</span>'),
+            array('ABC', '<span class="label severity-ABC">ABC</span>'),
+        );
     }
 }

@@ -27,11 +27,11 @@ class SQLLogger extends AdapterAbstract implements DoctrineSQLLogger
      */
     public function startQuery($sql, array $params = null, array $types = null)
     {
-        $metadata = [
+        $metadata = array(
             'query' => $sql,
             'params' => $params,
             'types' => $types,
-        ];
+        );
         $this->setCurrentBenchmark($this->profiler->start('Doctrine::query', $metadata, 'Database'));
     }
 
