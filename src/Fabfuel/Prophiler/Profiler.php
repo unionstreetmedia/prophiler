@@ -14,7 +14,7 @@ class Profiler implements ProfilerInterface, \Countable
     /**
      * @var BenchmarkInterface[]
      */
-    protected $benchmarks = [];
+    protected $benchmarks = array();
 
     /**
      * @var double Starting time
@@ -37,7 +37,7 @@ class Profiler implements ProfilerInterface, \Countable
      * @param string $component Name of the component which triggered the benchmark, e.g. "App", "Database"
      * @return BenchmarkInterface The started benchmark
      */
-    public function start($name, array $metadata = [], $component = null)
+    public function start($name, array $metadata = array(), $component = null)
     {
         $benchmark = BenchmarkFactory::getBenchmark(
             $name,
@@ -58,7 +58,7 @@ class Profiler implements ProfilerInterface, \Countable
      * @throws UnknownBenchmarkException
      * @return BenchmarkInterface $benchmark
      */
-    public function stop(BenchmarkInterface $benchmark = null, array $metadata = [])
+    public function stop(BenchmarkInterface $benchmark = null, array $metadata = array())
     {
         if (is_null($benchmark)) {
             $benchmark = $this->getLastBenchmark();
