@@ -39,7 +39,7 @@ class Benchmark implements BenchmarkInterface
     /**
      * @var array Custom metadata regarding this benchmark
      */
-    protected $metadata = [];
+    protected $metadata = array();
 
     /**
      * @var string
@@ -51,7 +51,7 @@ class Benchmark implements BenchmarkInterface
      * @param array $metadata Additional metadata
      * @param string $component Name of the component which triggered the benchmark, e.g. "App", "Database"
      */
-    public function __construct($name, array $metadata = [], $component = null)
+    public function __construct($name, array $metadata = array(), $component = null)
     {
         $this->setName($name);
         $this->addMetadata($metadata);

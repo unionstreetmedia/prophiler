@@ -143,7 +143,7 @@ class PhalconTest extends \PHPUnit_Framework_TestCase
 
         $db = $this->getMockBuilder('Phalcon\Db\Adapter\Pdo')
             ->disableOriginalConstructor()
-            ->setMethods([])
+            ->setMethods(array())
             ->getMock();
 
         $db->expects($this->any())
@@ -177,7 +177,7 @@ class PhalconTest extends \PHPUnit_Framework_TestCase
 
         $db = $this->getMockBuilder('Phalcon\Db\Adapter\Pdo')
             ->disableOriginalConstructor()
-            ->setMethods([])
+            ->setMethods(array())
             ->getMock();
 
         $db->expects($this->once())

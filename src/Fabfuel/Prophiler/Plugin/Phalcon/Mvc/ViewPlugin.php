@@ -19,7 +19,7 @@ class ViewPlugin extends PluginAbstract implements ViewPluginInterface
     /**
      * @var BenchmarkInterface[][]
      */
-    private $benchmarks = [];
+    private $benchmarks = array();
 
     /**
      * All render levels as descriptive strings

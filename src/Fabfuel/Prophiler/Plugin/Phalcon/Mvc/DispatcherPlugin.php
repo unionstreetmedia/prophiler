@@ -33,7 +33,7 @@ class DispatcherPlugin extends PluginAbstract
     public function beforeDispatchLoop(Event $event)
     {
         $name = get_class($event->getSource()) . '::dispatchLoop';
-        $this->benchmarkDispatch = $this->getProfiler()->start($name, [], 'Dispatcher');
+        $this->benchmarkDispatch = $this->getProfiler()->start($name, array(), 'Dispatcher');
     }
 
     /**

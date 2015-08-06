@@ -52,7 +52,7 @@ class PDO
     public function query($statement)
     {
         $metadata = ['statement' => $statement];
-        $benchmark = $this->getProfiler()->start('PDO::query', [], 'Database');
+        $benchmark = $this->getProfiler()->start('PDO::query', array(), 'Database');
         $result = $this->getPdo()->query($statement);
         if ($result instanceof \PDOStatement) {
             $metadata['rows'] = $result->rowCount();
@@ -69,7 +69,7 @@ class PDO
     public function exec($statement)
     {
         $metadata = ['statement' => $statement];
-        $benchmark = $this->getProfiler()->start('PDO::exec', [], 'Database');
+        $benchmark = $this->getProfiler()->start('PDO::exec', array(), 'Database');
         $result = $this->getPdo()->exec($statement);
         if ($result !== false) {
             $metadata['affected rows'] = $result;
@@ -86,7 +86,7 @@ class PDO
     public function prepare($statement, $options = null)
     {
         $benchmark = $this->getProfiler()->start('PDO::prepare', ['statement' => $statement], 'Database');
-        $pdoStatement = $this->getPdo()->prepare($statement, $options ?: []);
+        $pdoStatement = $this->getPdo()->prepare($statement, $options ?: array());
         $this->getProfiler()->stop($benchmark);
         if (!$pdoStatement) {
             return false;

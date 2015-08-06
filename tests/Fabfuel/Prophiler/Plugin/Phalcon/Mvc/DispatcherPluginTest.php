@@ -33,7 +33,7 @@ class DispatcherPluginTest extends PhalconPluginTest
 
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('Phalcon\Mvc\Dispatcher::dispatchLoop', [], 'Dispatcher')
+            ->with('Phalcon\Mvc\Dispatcher::dispatchLoop', array(), 'Dispatcher')
             ->willReturn($benchmark);
 
         $this->profiler->expects($this->once())

@@ -17,7 +17,7 @@ interface ProfilerInterface extends \Iterator
      * @param string $component Name of the component which triggered the benchmark, e.g. "App", "Database"
      * @return BenchmarkInterface The started benchmark
      */
-    public function start($name, array $metadata = [], $component = null);
+    public function start($name, array $metadata = array(), $component = null);
 
     /**
      * Stop a running benchmark
@@ -27,7 +27,7 @@ interface ProfilerInterface extends \Iterator
      * @param array $metadata Addtional metadata or data
      * @return BenchmarkInterface
      */
-    public function stop(BenchmarkInterface $benchmark = null, array $metadata = []);
+    public function stop(BenchmarkInterface $benchmark = null, array $metadata = array());
 
     /**
      * Get the total number of elapsed time in milliseconds

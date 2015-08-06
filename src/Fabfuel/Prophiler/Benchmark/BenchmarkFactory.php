@@ -13,7 +13,7 @@ class BenchmarkFactory
      * @param string $component Name of the component which triggered the benchmark, e.g. "App", "Database"
      * @return BenchmarkInterface
      */
-    public static function getBenchmark($name, $metadata = [], $component = null)
+    public static function getBenchmark($name, $metadata = array(), $component = null)
     {
         return new Benchmark($name, $metadata, $component);
     }

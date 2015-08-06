@@ -29,7 +29,7 @@ class ClientDecoratorTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->profiler = $this->getMock('Fabfuel\Prophiler\ProfilerInterface');
-        $this->client = $this->getMock('\Elasticsearch\Client', ['get', 'search'], [], 'ElasticMock');
+        $this->client = $this->getMock('\Elasticsearch\Client', ['get', 'search'], array(), 'ElasticMock');
         $this->decorator = new ClientDecorator($this->client, $this->profiler);
     }
 

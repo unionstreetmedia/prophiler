@@ -66,7 +66,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function getFrontend()
     {
-        return $this->__call('getFrontend', []);
+        return $this->__call('getFrontend', array());
     }
 
     /**
@@ -76,7 +76,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function getOptions()
     {
-        return $this->__call('getOptions', []);
+        return $this->__call('getOptions', array());
     }
 
     /**
@@ -86,7 +86,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function isFresh()
     {
-        return $this->__call('isFresh', []);
+        return $this->__call('isFresh', array());
     }
 
     /**
@@ -96,7 +96,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function isStarted()
     {
-        return $this->__call('isStarted', []);
+        return $this->__call('isStarted', array());
     }
 
     /**
@@ -117,7 +117,7 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function getLastKey()
     {
-        return $this->__call('getLastKey', []);
+        return $this->__call('getLastKey', array());
     }
 
     /**
@@ -187,6 +187,6 @@ class BackendDecorator extends AbstractDecorator implements BackendInterface
      */
     public function flush()
     {
-        return $this->__call('flush', []);
+        return $this->__call('flush', array());
     }
 }

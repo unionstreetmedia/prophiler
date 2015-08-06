@@ -25,7 +25,7 @@ class Mongo extends AdapterAbstract implements ProfilerInterface
     /**
      * @var BenchmarkInterface[]
      */
-    protected $benchmarks = [];
+    protected $benchmarks = array();
 
     /**
      * Start a new benchmark
@@ -34,7 +34,7 @@ class Mongo extends AdapterAbstract implements ProfilerInterface
      * @param array $metadata Addtional interesting metadata for this benchmark
      * @return string benchmark identifier
      */
-    public function start($name, array $metadata = [])
+    public function start($name, array $metadata = array())
     {
         $benchmark = $this->getProfiler()->start($name, $metadata, 'MongoDB');
         $identifier = spl_object_hash($benchmark);

@@ -23,14 +23,14 @@ class ComponentFilteredIterator extends \FilterIterator implements \Countable
     /**
      * @var array
      */
-    protected $filters = [];
+    protected $filters = array();
 
     /**
      * @param ProfilerInterface|\Iterator $profiler
      * @param string $component
      * @param array $filters Additional filters (e.g. ['severity' => ['alert', 'emergency', 'error']
      */
-    public function __construct(ProfilerInterface $profiler, $component, array $filters = [])
+    public function __construct(ProfilerInterface $profiler, $component, array $filters = array())
     {
         $this->filters = $filters;
         $this->component = $component;

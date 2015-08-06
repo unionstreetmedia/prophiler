@@ -11,7 +11,7 @@ class Generic implements DataCollectorInterface
 {
     protected $title = 'Unnamed';
     protected $icon;
-    protected $data = [];
+    protected $data = array();
 
     /**
      * Get the title of this data collector

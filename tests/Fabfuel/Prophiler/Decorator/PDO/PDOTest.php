@@ -79,7 +79,7 @@ class PDOTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('PDO::query', [], 'Database')
+            ->with('PDO::query', array(), 'Database')
             ->willReturn($benchmark);
 
         $this->profiler->expects($this->once())
@@ -108,7 +108,7 @@ class PDOTest extends \PHPUnit_Framework_TestCase
 
         $this->profiler->expects($this->once())
             ->method('start')
-            ->with('PDO::exec', [], 'Database')
+            ->with('PDO::exec', array(), 'Database')
             ->willReturn($benchmark);
 
         $this->profiler->expects($this->once())

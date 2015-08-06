@@ -18,7 +18,7 @@ class Toolbar
     /**
      * @var DataCollectorInterface[]
      */
-    protected $dataCollectors = [];
+    protected $dataCollectors = array();
 
     /**
      * @param ProfilerInterface $profiler
@@ -59,7 +59,7 @@ class Toolbar
      * @param string $viewPath
      * @param array $params
      */
-    public function partial($viewPath, array $params = [])
+    public function partial($viewPath, array $params = array())
     {
         extract($params, EXTR_OVERWRITE);
         $viewScriptPath = __DIR__ . '/View/' . $viewPath . '.phtml';

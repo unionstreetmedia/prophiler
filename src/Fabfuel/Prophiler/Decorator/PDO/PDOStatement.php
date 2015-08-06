@@ -28,7 +28,7 @@ class PDOStatement
     /**
      * @var array
      */
-    protected $parameters = [];
+    protected $parameters = array();
 
     /**
      * @param \PDOStatement $statement

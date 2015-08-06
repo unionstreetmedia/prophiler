@@ -46,7 +46,7 @@ class BackendDecoratorTest extends \PHPUnit_Framework_TestCase
             'queryKeys',
             'exists',
             'flush',
-        ], [], 'CacheMock');
+        ], array(), 'CacheMock');
         $this->profiler = $this->getMock('Fabfuel\Prophiler\ProfilerInterface');
         $this->decorator = new BackendDecorator($this->backend, $this->profiler);
     }
@@ -151,18 +151,18 @@ class BackendDecoratorTest extends \PHPUnit_Framework_TestCase
         return [
             ['start', ['key', 123]],
             ['stop', [true]],
-            ['getFrontend', []],
-            ['getOptions', []],
-            ['isFresh', []],
-            ['isStarted', []],
+            ['getFrontend', array()],
+            ['getOptions', array()],
+            ['isFresh', array()],
+            ['isStarted', array()],
             ['setLastKey', ['lastkey']],
-            ['getLastKey', []],
+            ['getLastKey', array()],
             ['get', ['key', 123]],
             ['save', ['key', 'content', 123, true]],
             ['delete', ['key']],
             ['queryKeys', ['prefix']],
             ['exists', ['key', 123]],
-            ['flush', []],
+            ['flush', array()],
         ];
     }
 }
