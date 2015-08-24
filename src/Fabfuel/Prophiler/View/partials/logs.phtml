@@ -15,7 +15,7 @@
         </div>
 
         <div class="details <?= $logFormatter->getColorClass() ?>" id="prophiler-log-details-<?= $logFormatter->getId() ?>" >
-            <?php $this->partial('partials/details/log', ['benchmark' => $logFormatter]); ?>
+            <?php $this->partial('partials/details/log', array('benchmark' => $logFormatter)); ?>
         </div>
 
     <?php endforeach; ?>

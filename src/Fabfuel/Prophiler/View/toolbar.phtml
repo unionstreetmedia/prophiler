@@ -46,15 +46,15 @@
     </div>
 
     <div id="prophiler-benchmarks" class="benchmarks">
-        <?php $this->partial('partials/benchmarks', ['profiler' => $profiler]); ?>
+        <?php $this->partial('partials/benchmarks', array('profiler' => $profiler)); ?>
     </div>
 
     <div id="prophiler-logs" class="logs">
-        <?php $this->partial('partials/logs', ['profiler' => $profiler]); ?>
+        <?php $this->partial('partials/logs', array('profiler' => $profiler)); ?>
     </div>
 
     <?php foreach ($dataCollectors as $dataCollector): ?>
-        <?php $this->partial('partials/datacollector', ['dataCollector' => $dataCollector]); ?>
+        <?php $this->partial('partials/datacollector', array('dataCollector' => $dataCollector)); ?>
     <?php endforeach; ?>
 </div>
 
